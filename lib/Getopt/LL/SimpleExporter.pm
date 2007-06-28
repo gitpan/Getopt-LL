@@ -1,14 +1,13 @@
-# $Id: SimpleExporter.pm,v 1.3 2007/06/22 09:00:21 ask Exp $
+# $Id: SimpleExporter.pm,v 1.4 2007/06/28 18:44:52 ask Exp $
 # $Source: /opt/CVS/Getopt-LL/lib/Getopt/LL/SimpleExporter.pm,v $
 # $Author: ask $
 # $HeadURL$
-# $Revision: 1.3 $
-# $Date: 2007/06/22 09:00:21 $
+# $Revision: 1.4 $
+# $Date: 2007/06/28 18:44:52 $
 package Getopt::LL::SimpleExporter;
 use strict;
 use warnings;
-use vars qw($VERSION);
-$VERSION = 1.0;
+use version; our $VERSION = qv('0.0.4');
 
 my %EXPORTS_FOR_PACKAGE = ();
 

@@ -8,7 +8,7 @@ Getopt::LL::Simple - Specify arguments on the use-line.
 
 =head1 VERSION
 
-This document describes Getopt::LL version 0.0.3
+This document describes Getopt::LL version 0.0.4
 
 =head1 SYNOPSIS
 

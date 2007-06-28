@@ -1,16 +1,16 @@
-# $Id: LL.pm,v 1.15 2007/06/27 23:53:46 ask Exp $
+# $Id: LL.pm,v 1.16 2007/06/28 18:44:51 ask Exp $
 # $Source: /opt/CVS/Getopt-LL/lib/Getopt/LL.pm,v $
 # $Author: ask $
 # $HeadURL$
-# $Revision: 1.15 $
-# $Date: 2007/06/27 23:53:46 $
+# $Revision: 1.16 $
+# $Date: 2007/06/28 18:44:51 $
 package Getopt::LL;
 use strict;
 use warnings;
 use Carp;
 use Getopt::LL::DLList;
 use English qw($PROGRAM_NAME);
-use version; our $VERSION = qv('0.0.3');
+use version; our $VERSION = qv('0.0.4');
 {
 
     use Getopt::LL::SimpleExporter qw(

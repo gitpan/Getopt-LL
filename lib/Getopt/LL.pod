@@ -8,7 +8,7 @@ Getopt::LL - Flexible argument processing.
 
 =head1 VERSION
 
-This document describes B<Getopt::LL> version 0.0.3
+This document describes B<Getopt::LL> version 0.0.4
 
 =head1 SYNOPSIS
 

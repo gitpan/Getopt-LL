@@ -1,15 +1,15 @@
-# $Id: Node.pm,v 1.7 2007/06/27 12:20:48 ask Exp $
+# $Id: Node.pm,v 1.8 2007/06/28 18:44:53 ask Exp $
 # $Source: /opt/CVS/Getopt-LL/lib/Getopt/LL/DLList/Node.pm,v $
 # $Author: ask $
 # $HeadURL$
-# $Revision: 1.7 $
-# $Date: 2007/06/27 12:20:48 $
+# $Revision: 1.8 $
+# $Date: 2007/06/28 18:44:53 $
 package Getopt::LL::DLList::Node;
 use strict;
 use warnings;
 use Carp;
 use Scalar::Util qw( weaken );
-use version; our $VERSION = qv('0.0.3');
+use version; our $VERSION = qv('0.0.4');
 {
 
     use vars qw($ALLOCATED_TOTAL);

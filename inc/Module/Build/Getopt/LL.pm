@@ -1,18 +1,24 @@
-# $Id: LL.pm,v 1.1 2007/06/20 18:40:40 ask Exp $
+# $Id: LL.pm,v 1.3 2007/06/28 18:40:09 ask Exp $
 # $Source: /opt/CVS/Getopt-LL/inc/Module/Build/Getopt/LL.pm,v $
 # $Author: ask $
 # $HeadURL$
-# $Revision: 1.1 $
-# $Date: 2007/06/20 18:40:40 $
+# $Revision: 1.3 $
+# $Date: 2007/06/28 18:40:09 $
 package Module::Build::Getopt::LL;
 use strict;
 use warnings;
 use base 'Module::Build';
+use vars qw($VERSION);
+use English qw( -no_match_vars );
+
+$VERSION = 1.0;
 
 sub ACTION_wikidoc {
     my $self = shift;
-    eval 'use Pod::WikiDoc';
-    if ($@ eq q{}) {
+
+    eval 'use Pod::WikiDoc'; ## no critic;
+    if ($EVAL_ERROR eq q{}) {
+
         my $parser = Pod::WikiDoc->new(
             {   comment_blocks  => 1,
                 keywords        => {VERSION => $self->dist_version,},
@@ -34,6 +40,8 @@ sub ACTION_wikidoc {
             'Pod::WikiDoc not available. Skipping wikidoc.'
         );
     }
+
+    return;
 }
 
 sub ACTION_test {
@@ -64,6 +72,15 @@ sub ACTION_distdir {
     my $self = shift;
     $self->depends_on('wikidoc');
     return $self->SUPER::ACTION_distdir(@_);
+}
+
+sub ACTION_testcover {
+    my $self = shift;
+
+    $ENV{TEST_COVERAGE} = 1;
+    $self->SUPER::ACTION_testcover(@_);
+
+    return;
 }
 
 

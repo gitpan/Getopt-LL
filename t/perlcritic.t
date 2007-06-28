@@ -8,8 +8,8 @@ if ($ENV{TEST_COVERAGE}) {
     plan( skip_all => 'Disabled when testing coverage.' );
 }
 
-if ( not $ENV{CLASSPLUGINUTIL_AUTHOR} ) {
-    my $msg = 'Author test.  Set $ENV{CLASSPLUGINUTIL_AUTHOR} to a true value to run.';
+if ( not $ENV{GETOPTLL_AUTHOR} ) {
+    my $msg = 'Author test.  Set $ENV{GETOPTLL_AUTHOR} to a true value to run.';
     plan( skip_all => $msg );
 }
 

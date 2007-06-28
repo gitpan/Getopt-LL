@@ -1,9 +1,9 @@
-# $Id: DLList.pm,v 1.7 2007/06/27 12:20:47 ask Exp $
+# $Id: DLList.pm,v 1.8 2007/06/28 18:44:52 ask Exp $
 # $Source: /opt/CVS/Getopt-LL/lib/Getopt/LL/DLList.pm,v $
 # $Author: ask $
 # $HeadURL$
-# $Revision: 1.7 $
-# $Date: 2007/06/27 12:20:47 $
+# $Revision: 1.8 $
+# $Date: 2007/06/28 18:44:52 $
 package Getopt::LL::DLList;
 use strict;
 use warnings;
@@ -11,7 +11,7 @@ use Carp;
 use Getopt::LL::DLList::Node;
 use Scalar::Util qw();
 #use Class::InsideOut::Policy::Modwheel qw( :std );
-use version; our $VERSION = qv('0.0.3');
+use version; our $VERSION = qv('0.0.4');
 {
 
     use Class::Dot qw( :std );

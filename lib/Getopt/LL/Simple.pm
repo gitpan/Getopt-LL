@@ -1,14 +1,14 @@
-# $Id: Simple.pm,v 1.2 2007/06/22 21:03:35 ask Exp $
+# $Id: Simple.pm,v 1.3 2007/06/28 18:44:52 ask Exp $
 # $Source: /opt/CVS/Getopt-LL/lib/Getopt/LL/Simple.pm,v $
 # $Author: ask $
 # $HeadURL$
-# $Revision: 1.2 $
-# $Date: 2007/06/22 21:03:35 $
+# $Revision: 1.3 $
+# $Date: 2007/06/28 18:44:52 $
 package Getopt::LL::Simple;
 use strict;
 use warnings;
 use Getopt::LL::Short qw( );
-use version; our $VERSION = qv('0.0.3');
+use version; our $VERSION = qv('0.0.4');
 
 sub import {
     my ($pkg, @rules) = @_;

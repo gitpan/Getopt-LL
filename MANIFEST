@@ -1,5 +1,6 @@
 Build.PL
 Changes
+devel/changeversion.sh
 devel/graph/Getopt-LL.html
 devel/graph/graph.txt
 devel/scrap

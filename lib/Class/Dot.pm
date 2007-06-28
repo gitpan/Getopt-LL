@@ -1,13 +1,13 @@
-# $Id: Dot.pm,v 1.1 2007/06/27 12:20:45 ask Exp $
+# $Id: Dot.pm,v 1.2 2007/06/28 18:44:50 ask Exp $
 # $Source: /opt/CVS/Getopt-LL/lib/Class/Dot.pm,v $
 # $Author: ask $
 # $HeadURL$
-# $Revision: 1.1 $
-# $Date: 2007/06/27 12:20:45 $
+# $Revision: 1.2 $
+# $Date: 2007/06/28 18:44:50 $
 package Class::Dot;
 use strict;
 use warnings;
-use version; our $VERSION = qv('0.0.1');
+use version; our $VERSION = qv('0.0.4');
 use Carp;
 
 my @EXPORT_OK = qw(

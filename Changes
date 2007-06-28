@@ -1,5 +1,15 @@
 Revision history for Getopt-LL
 
+0.0.4  Thu Jun 28 08:26:45 2007 [asksh@cpan.org]
+    - From: Josts Smokehouse
+    > Subject: FAIL Getopt-LL-0.0.3 sun4-solaris-thread-multi 2.9
+    > [snip]...[/snip]
+    > t/dllist....................Can't locate Getopt/LL/properties.pm in @INC
+    > [snip]...[/snip]
+
+    Fixed. {use Getopt::LL::properties} changed to {use Class::Dot} in file
+    t/TestDLListCompare.pm.
+
 0.0.3  Sat Jun 22 01:25:23 2007 [asksh@cpan.org]
        * Initial release.
 

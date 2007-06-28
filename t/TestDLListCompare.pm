@@ -1,6 +1,6 @@
 package TestDLListCompare;
 use Test::Builder qw( );
-use Getopt::LL::properties qw(property isa_Int isa_Array isa_Object);
+use Class::Dot qw(property isa_Int isa_Array isa_Object);
 
 property count  => isa_Int;
 property array  => isa_Array;
