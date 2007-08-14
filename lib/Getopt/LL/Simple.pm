@@ -1,14 +1,15 @@
-# $Id: Simple.pm,v 1.3 2007/06/28 18:44:52 ask Exp $
+# $Id: Simple.pm,v 1.5 2007/07/13 00:00:14 ask Exp $
 # $Source: /opt/CVS/Getopt-LL/lib/Getopt/LL/Simple.pm,v $
 # $Author: ask $
 # $HeadURL$
-# $Revision: 1.3 $
-# $Date: 2007/06/28 18:44:52 $
+# $Revision: 1.5 $
+# $Date: 2007/07/13 00:00:14 $
 package Getopt::LL::Simple;
 use strict;
 use warnings;
-use Getopt::LL::Short qw( );
-use version; our $VERSION = qv('0.0.4');
+use Getopt::LL::Short qw(getoptions);
+use version; our $VERSION = qv('0.0.5');
+use 5.006_001;
 
 sub import {
     my ($pkg, @rules) = @_;
@@ -20,7 +21,7 @@ sub import {
     }
 
     my $options
-        = Getopt::LL::Short::getoptions(\@rules, $options_ref);
+        = getoptions(\@rules, $options_ref);
 
     no strict 'refs'; ## no critic
     %{ $caller . q{::} . 'ARGV' } = %{ $options };
@@ -43,7 +44,7 @@ This document describes Getopt::LL version %%VERSION%%
 
 = SYNOPSIS
 
-    use Getopt:LL::Simple qw(
+    use Getopt::LL::Simple qw(
         -f=s         
         --verbose|-v    
         --debug|-d=d    
@@ -122,7 +123,7 @@ YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR, OR CORRECTION.
 
 IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING WILL ANY
 COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MAY MODIFY AND/OR REDISTRIBUTE THE
-SOFTWARE AS PERMITTED BY THE ABOVE LICENCE, BE LIABLE TO YOU FOR DAMAGES,
+SOFTWARE AS PERMITTED BY THE ABOVE LICENSE, BE LIABLE TO YOU FOR DAMAGES,
 INCLUDING ANY GENERAL, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES ARISING
 OUT OF THE USE OR INABILITY TO USE THE SOFTWARE (INCLUDING BUT NOT LIMITED TO
 LOSS OF DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR
@@ -132,6 +133,11 @@ POSSIBILITY OF SUCH DAMAGES.
 
 =end wikidoc
 
-# Local variables:
-# vim: ts=4
+
+# Local Variables:
+#   mode: cperl
+#   cperl-indent-level: 4
+#   fill-column: 78
+# End:
+# vim: expandtab tabstop=4 shiftwidth=4 shiftround
 

@@ -1,5 +1,15 @@
 Revision history for Getopt-LL
 
+0.0.5  Tue Aug 14 16:29:45 2007 [asksh@cpan.org]
+    - Now skips author tests. Removed author test modules from dependencies.
+
+0.0.5  Tue Jul 03 09:22:31 2007 [asksh@cpan.org]
+    - From: Tomohiro Hosaka
+    - CPAN RT ticket: http://rt.cpan.org/Ticket/Display.html?id=27924 
+    - Subject: Typo in Getopt::LL::Simple pod.
+    
+    Fixed.
+
 0.0.4  Thu Jun 28 08:26:45 2007 [asksh@cpan.org]
     - From: Josts Smokehouse
     > Subject: FAIL Getopt-LL-0.0.3 sun4-solaris-thread-multi 2.9

@@ -1,23 +1,23 @@
-# $Id: LL.pm,v 1.16 2007/06/28 18:44:51 ask Exp $
+# $Id: LL.pm,v 1.17 2007/07/13 00:00:13 ask Exp $
 # $Source: /opt/CVS/Getopt-LL/lib/Getopt/LL.pm,v $
 # $Author: ask $
 # $HeadURL$
-# $Revision: 1.16 $
-# $Date: 2007/06/28 18:44:51 $
+# $Revision: 1.17 $
+# $Date: 2007/07/13 00:00:13 $
 package Getopt::LL;
 use strict;
 use warnings;
-use Carp;
+use Carp qw(croak);
 use Getopt::LL::DLList;
 use English qw($PROGRAM_NAME);
-use version; our $VERSION = qv('0.0.4');
+use version qw(qv); our $VERSION = qv('0.0.5');
+use 5.006_001;
 {
 
-    use Getopt::LL::SimpleExporter qw(
-        getoptions opt_String opt_Digit opt_Flag
-    );
 
-    use Class::Dot qw( :std );
+    use Getopt::LL::SimpleExporter qw(getoptions opt_String opt_Digit opt_Flag);
+
+    use Class::Dot qw( property isa_Hash isa_Array isa_Object );
 
     #========================================================================
     #                           - CLASS PROPERTIES -
@@ -364,7 +364,6 @@ use version; our $VERSION = qv('0.0.4');
     sub type_mismatch_error {
         my ($self, $type, $message) = @_;
         my $options_ref = $self->options;
-        #$message .= "\n";
 
         $options_ref->{die_on_type_mismatch}
             ? die  $message, "\n"
@@ -509,7 +508,8 @@ use version; our $VERSION = qv('0.0.4');
     sub getoptions {
         my ($rules_ref, $options_ref, $argv_ref) = @_;
 
-        my $getopts = __PACKAGE__->new($rules_ref, $options_ref, $argv_ref);
+        my $getopts =
+            __PACKAGE__->new($rules_ref, $options_ref, $argv_ref); ## no critic;
         my $result  = $getopts->result();
 
         # ARGV should be set to what is left of the argument vector.
@@ -674,11 +674,11 @@ The sub-routine will be called with the following arguments
 0    {$_[0]} - The Getopt::LL object.
 0    {$_[1]} - The current argument node (A Getopt::LL::DLList::Node] object).
 0    {$_[2]} - The argument name.
-0    {$_[3]} - If an argument value was set by the user with {--arg=value}, the value is in this var.
+0    {$_[3]} - If an argument value was set by the user with {--arg=value}, the value is in this variable.
 
 The return value of the anonymous subroutine will be the value of the option.
 
-Here is an example of a rule sub that simply assignes the value of the next
+Here is an example of a rule sub that simply assigns the value of the next
 argument to the option value:
 
     my $rules = {
@@ -875,7 +875,7 @@ This function decides what to do with the argument based on it's {RULE_ACTION}.
 === {get_next_arg($node)}
 
 Get and delete the next argument.
-(Get's the next node in our doubly linked list and deletes the current node)
+(Gets the next node in our doubly linked list and deletes the current node)
 
 === {peek_next_arg($node)}
 
@@ -1052,7 +1052,7 @@ YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR, OR CORRECTION.
 
 IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING WILL ANY
 COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MAY MODIFY AND/OR REDISTRIBUTE THE
-SOFTWARE AS PERMITTED BY THE ABOVE LICENCE, BE LIABLE TO YOU FOR DAMAGES,
+SOFTWARE AS PERMITTED BY THE ABOVE LICENSE, BE LIABLE TO YOU FOR DAMAGES,
 INCLUDING ANY GENERAL, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES ARISING
 OUT OF THE USE OR INABILITY TO USE THE SOFTWARE (INCLUDING BUT NOT LIMITED TO
 LOSS OF DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR
@@ -1062,6 +1062,10 @@ POSSIBILITY OF SUCH DAMAGES.
 
 =end wikidoc
 
-# Local variables:
-# vim: ts=4
+# Local Variables:
+#   mode: cperl
+#   cperl-indent-level: 4
+#   fill-column: 78
+# End:
+# vim: expandtab tabstop=4 shiftwidth=4 shiftround
 

@@ -1,13 +1,14 @@
-# $Id: SimpleExporter.pm,v 1.4 2007/06/28 18:44:52 ask Exp $
+# $Id: SimpleExporter.pm,v 1.5 2007/07/13 00:00:14 ask Exp $
 # $Source: /opt/CVS/Getopt-LL/lib/Getopt/LL/SimpleExporter.pm,v $
 # $Author: ask $
 # $HeadURL$
-# $Revision: 1.4 $
-# $Date: 2007/06/28 18:44:52 $
+# $Revision: 1.5 $
+# $Date: 2007/07/13 00:00:14 $
 package Getopt::LL::SimpleExporter;
 use strict;
 use warnings;
-use version; our $VERSION = qv('0.0.4');
+use version; our $VERSION = qv('0.0.5');
+use 5.006_001;
 
 my %EXPORTS_FOR_PACKAGE = ();
 
@@ -17,7 +18,8 @@ sub import {
     $EXPORTS_FOR_PACKAGE{$caller} = {map { $_ => 1} @_};
 
     no strict 'refs'; ## no critic;
-    *{ $caller . q{::} . 'import' } = \&simple_export;
+    *{ $caller . q{::} . 'import'    } = \&simple_export;
+    @{ $caller . q{::} . 'EXPORT_OK' } = @_;
 
     return;
 }
@@ -34,10 +36,10 @@ sub simple_export {
             if (!$exports{$export_attr}) {
                 require Carp;
                 Carp->import('croak');
-                croak("$class does not export $export_attr");
+                croak("$class does not export $export_attr"); ## no critic
             }
 
-            my $sub = *{ "$class\::$export_attr" }{CODE};
+            my $sub = *{ "$class\::$export_attr" }{CODE}; ## no critic
             *{ $caller . q{::} . $export_attr } = $sub;
         }
 
@@ -149,7 +151,7 @@ YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR, OR CORRECTION.
 
 IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING WILL ANY
 COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MAY MODIFY AND/OR REDISTRIBUTE THE
-SOFTWARE AS PERMITTED BY THE ABOVE LICENCE, BE LIABLE TO YOU FOR DAMAGES,
+SOFTWARE AS PERMITTED BY THE ABOVE LICENSE, BE LIABLE TO YOU FOR DAMAGES,
 INCLUDING ANY GENERAL, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES ARISING
 OUT OF THE USE OR INABILITY TO USE THE SOFTWARE (INCLUDING BUT NOT LIMITED TO
 LOSS OF DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR
@@ -162,3 +164,9 @@ POSSIBILITY OF SUCH DAMAGES.
 # Local variables:
 # vim: ts=4
 
+# Local Variables:
+#   mode: cperl
+#   cperl-indent-level: 4
+#   fill-column: 78
+# End:
+# vim: expandtab tabstop=4 shiftwidth=4 shiftround

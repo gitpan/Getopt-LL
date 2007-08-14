@@ -1,14 +1,15 @@
-# $Id: Dot.pm,v 1.2 2007/06/28 18:44:50 ask Exp $
+# $Id: Dot.pm,v 1.5 2007/07/13 00:00:12 ask Exp $
 # $Source: /opt/CVS/Getopt-LL/lib/Class/Dot.pm,v $
 # $Author: ask $
 # $HeadURL$
-# $Revision: 1.2 $
-# $Date: 2007/06/28 18:44:50 $
+# $Revision: 1.5 $
+# $Date: 2007/07/13 00:00:12 $
 package Class::Dot;
 use strict;
 use warnings;
-use version; our $VERSION = qv('0.0.4');
-use Carp;
+use version qw(qv); our $VERSION = qv('0.0.5');
+use Carp qw(croak);
+use 5.006_001;
 
 my @EXPORT_OK = qw(
     property
@@ -125,7 +126,7 @@ sub _create_constructor {
         }
 
         no strict 'refs'; ## no critic
-        if (my $build_ref = *{ $class . '::BUILD' }{CODE}) {
+        if (my $build_ref = *{ $class . '::BUILD' }{CODE}) { ## no critic
             $build_ref->($self, $options_ref);
         }
 
@@ -135,7 +136,7 @@ sub _create_constructor {
 
 sub properties_for_class {
     my ($self, $class) = @_;
-    $class = ref $class || $class;
+    $class = ref $class || $class; ## no critic
 
     my %class_properties;
 
@@ -165,7 +166,7 @@ sub _create_destroy_method {
 
         no strict   'refs'; ## no critic
         no warnings 'once'; ## no critic
-        if (my $demolish_ref = *{$CALLPKG.'::DEMOLISH'}{CODE}) {
+        if (my $demolish_ref = *{$CALLPKG.'::DEMOLISH'}{CODE}) { ## no critic
             $demolish_ref->($self);
         }
 
@@ -434,7 +435,7 @@ Create the set accessor for a property.
 Returns a code reference to the new setter method.
 It has to be installed into the callers package afterwards.
 
-=== {_create_set_accessor($property)
+=== {_create_set_accessor($property)}
 =for apidoc CODEREF = Class::Dot::_create_set_accessor(string $property)
 
 Create the get accessor for a property.
@@ -500,7 +501,7 @@ YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR, OR CORRECTION.
 
 IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING WILL ANY
 COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MAY MODIFY AND/OR REDISTRIBUTE THE
-SOFTWARE AS PERMITTED BY THE ABOVE LICENCE, BE LIABLE TO YOU FOR DAMAGES,
+SOFTWARE AS PERMITTED BY THE ABOVE LICENSE, BE LIABLE TO YOU FOR DAMAGES,
 INCLUDING ANY GENERAL, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES ARISING
 OUT OF THE USE OR INABILITY TO USE THE SOFTWARE (INCLUDING BUT NOT LIMITED TO
 LOSS OF DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR
@@ -510,6 +511,10 @@ POSSIBILITY OF SUCH DAMAGES.
 
 =end wikidoc
 
-# Local variables:
-# vim: ts=4
 
+# Local Variables:
+#   mode: cperl
+#   cperl-indent-level: 4
+#   fill-column: 78
+# End:
+# vim: expandtab tabstop=4 shiftwidth=4 shiftround

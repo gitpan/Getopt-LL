@@ -1,20 +1,21 @@
-# $Id: DLList.pm,v 1.8 2007/06/28 18:44:52 ask Exp $
+# $Id: DLList.pm,v 1.9 2007/07/13 00:00:14 ask Exp $
 # $Source: /opt/CVS/Getopt-LL/lib/Getopt/LL/DLList.pm,v $
 # $Author: ask $
 # $HeadURL$
-# $Revision: 1.8 $
-# $Date: 2007/06/28 18:44:52 $
+# $Revision: 1.9 $
+# $Date: 2007/07/13 00:00:14 $
 package Getopt::LL::DLList;
 use strict;
 use warnings;
-use Carp;
+use Carp qw(croak);
 use Getopt::LL::DLList::Node;
 use Scalar::Util qw();
 #use Class::InsideOut::Policy::Modwheel qw( :std );
-use version; our $VERSION = qv('0.0.4');
+use version; our $VERSION = qv('0.0.5');
+use 5.006_001;
 {
 
-    use Class::Dot qw( :std );
+    use Class::Dot qw( property isa_Object );
 
     property head => isa_Object('Getopt::LL::DLList::Node');
 
@@ -80,7 +81,7 @@ use version; our $VERSION = qv('0.0.4');
         my ($self, $node) = @_;
         return if not $node;
 
-        my $data = $node->data;
+        my $node_data = $node->data;
 
         my $prev_node = $node->prev;
         my $next_node = $node->next;
@@ -98,7 +99,7 @@ use version; our $VERSION = qv('0.0.4');
 
         $node->free;
 
-        return $data;
+        return $node_data;
     }
 
     sub DEMOLISH {
@@ -124,6 +125,10 @@ use version; our $VERSION = qv('0.0.4');
 1;
 
 __END__
+
+=pod
+
+=for stopwords Initialize
 
 =begin wikidoc
 
@@ -198,7 +203,7 @@ Returns the value of the node deleted.
 
 === {_init()}
 
-Initalize the doubly linked list.
+Initialize the doubly linked list.
 
 === {DEMOLISH()}
 
@@ -263,7 +268,7 @@ YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR, OR CORRECTION.
 
 IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING WILL ANY
 COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MAY MODIFY AND/OR REDISTRIBUTE THE
-SOFTWARE AS PERMITTED BY THE ABOVE LICENCE, BE LIABLE TO YOU FOR DAMAGES,
+SOFTWARE AS PERMITTED BY THE ABOVE LICENSE, BE LIABLE TO YOU FOR DAMAGES,
 INCLUDING ANY GENERAL, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES ARISING
 OUT OF THE USE OR INABILITY TO USE THE SOFTWARE (INCLUDING BUT NOT LIMITED TO
 LOSS OF DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR
@@ -273,6 +278,10 @@ POSSIBILITY OF SUCH DAMAGES.
 
 =end wikidoc
 
-# Local variables:
-# vim: ts=4
 
+# Local Variables:
+#   mode: cperl
+#   cperl-indent-level: 4
+#   fill-column: 78
+# End:
+# vim: expandtab tabstop=4 shiftwidth=4 shiftround

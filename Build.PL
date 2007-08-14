@@ -1,9 +1,9 @@
-# $Id: Build.PL,v 1.3 2007/06/27 12:05:35 ask Exp $
+# $Id: Build.PL,v 1.5 2007/07/13 00:00:11 ask Exp $
 # $Source: /opt/CVS/Getopt-LL/Build.PL,v $
 # $Author: ask $
 # $HeadURL$
-# $Revision: 1.3 $
-# $Date: 2007/06/27 12:05:35 $
+# $Revision: 1.5 $
+# $Date: 2007/07/13 00:00:11 $
 use strict;
 use warnings;
 
@@ -43,15 +43,8 @@ my $builder = Module::Build::Getopt::LL->new(
         'version'                               => 0,
     },
     recommends           => {
-        'Test::Pod'             => 1.22,    # Last significant bug-change.
-        'Pod::Coverage'         => 0.18,       
-        'Test::Pod::Coverage'   => 1.08,    # Last significant bug-change.
         'Test::Exception'       => 0.25,
-        'Perl::Critic'          => 1.051,
-        'Test::Perl::Critic'    => 1.0,
-        'Test::YAML::Meta'      => 0.04,
         'IO::Capture::Stderr'   => 0,
-       'Test::Kwalitee'        => 0.30,
     },
     build_requires       => {
      'Test::Simple'            => 0.42,    # 
@@ -74,3 +67,10 @@ my $builder = Module::Build::Getopt::LL->new(
 );
 
 $builder->create_build_script( );
+
+# Local Variables:
+#   mode: cperl
+#   cperl-indent-level: 4
+#   fill-column: 78
+# End:
+# vim: expandtab tabstop=4 shiftwidth=4 shiftround

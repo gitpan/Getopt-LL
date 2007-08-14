@@ -1,6 +1,6 @@
 ---
 name: Getopt-LL
-version: 0.0.4
+version: 0.0.5
 author:
   - 'Ask Solem <ASKSH@cpan.org>'
 abstract: Flexible argument processing.
@@ -13,37 +13,30 @@ build_requires:
   Test::Simple: 0.42
 recommends:
   IO::Capture::Stderr: 0
-  Perl::Critic: 1.051
-  Pod::Coverage: 0.18
   Test::Exception: 0.25
-  Test::Kwalitee: 0.3
-  Test::Perl::Critic: 1
-  Test::Pod: 1.22
-  Test::Pod::Coverage: 1.08
-  Test::YAML::Meta: 0.04
 dynamic_config: 0
 provides:
   Class::Dot:
     file: lib/Class/Dot.pm
-    version: 0.0.4
+    version: 0.0.5
   Getopt::LL:
     file: lib/Getopt/LL.pm
-    version: 0.0.4
+    version: 0.0.5
   Getopt::LL::DLList:
     file: lib/Getopt/LL/DLList.pm
-    version: 0.0.4
+    version: 0.0.5
   Getopt::LL::DLList::Node:
     file: lib/Getopt/LL/DLList/Node.pm
-    version: 0.0.4
+    version: 0.0.5
   Getopt::LL::Short:
     file: lib/Getopt/LL/Short.pm
-    version: 0
+    version: 0.0.5
   Getopt::LL::Simple:
     file: lib/Getopt/LL/Simple.pm
-    version: 0.0.4
+    version: 0.0.5
   Getopt::LL::SimpleExporter:
     file: lib/Getopt/LL/SimpleExporter.pm
-    version: 0.0.4
+    version: 0.0.5
 generated_by: Module::Build version 0.2808
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.2.html

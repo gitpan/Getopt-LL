@@ -5,6 +5,7 @@ devel/graph/Getopt-LL.html
 devel/graph/graph.txt
 devel/scrap
 examples/perltags
+examples/simple.pl
 inc/Module/Build/Getopt/LL.pm
 lib/Class/Dot.pm
 lib/Class/Dot.pod
@@ -44,6 +45,7 @@ t/peek.t
 t/perlcritic.t
 t/perlcriticrc
 t/pod-coverage.t
+t/pod-spell.t
 t/pod.t
 t/properties.t
 t/regex.t
@@ -56,6 +58,7 @@ t/short.t
 t/simple.t
 t/simpleExporter.t
 t/slurp.t
+t/stopwords-asksh.txt
 t/TestArrayOverload.pm
 t/TestClass.pm
 t/TestDLListCompare.pm

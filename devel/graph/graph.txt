@@ -1,4 +1,4 @@
-graph { flow: up; }
+graph { flow: down; }
 node { fill: #ffe0e0; }
 node.core { fill: #e0ffe0; }
 node.testsuite { fill: #caa1ca; }
