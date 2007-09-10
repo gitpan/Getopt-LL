@@ -7,7 +7,7 @@
 package Getopt::LL::SimpleExporter;
 use strict;
 use warnings;
-use version; our $VERSION = qv('0.0.5');
+use version; our $VERSION = qv('0.0.6');
 use 5.006_001;
 
 my %EXPORTS_FOR_PACKAGE = ();

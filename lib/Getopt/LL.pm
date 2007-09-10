@@ -10,14 +10,14 @@ use warnings;
 use Carp qw(croak);
 use Getopt::LL::DLList;
 use English qw($PROGRAM_NAME);
-use version qw(qv); our $VERSION = qv('0.0.5');
+use version qw(qv); our $VERSION = qv('0.0.6');
 use 5.006_001;
 {
 
 
     use Getopt::LL::SimpleExporter qw(getoptions opt_String opt_Digit opt_Flag);
 
-    use Class::Dot qw( property isa_Hash isa_Array isa_Object );
+    use Class::Dot 1.0 qw( property isa_Hash isa_Array isa_Object );
 
     #========================================================================
     #                           - CLASS PROPERTIES -
@@ -982,6 +982,8 @@ into:
 This module requires no configuration file or environment variables.
 
 = DEPENDENCIES
+
+* [Class::Dot]
 
 * [version]
 

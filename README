@@ -2,14 +2,14 @@ NAME
     Getopt::LL - Flexible argument processing.
 
 VERSION
-    This document describes Getopt::LL version 0.0.5
+    This document describes Getopt::LL version 0.0.6
 
 SYNOPSIS
          use Getopt:LL qw(getoptions);
-     
-     my $use_foo = 0;
-     
-     my $options = getoptions({
+ 
+         my $use_foo = 0;
+ 
+         my $options = getoptions({
              '-t'            => 'string',
              '--verbose|-v'  => 'flag',
              '--debug|-d'    => 'digit',
@@ -19,12 +19,12 @@ SYNOPSIS
              '-output|-o'    => sub {
                  my ($getopt, $node) = @_;
                  my $next_arg = $getopt->get_next_arg($node);
-     
-             if ($next_arg eq '-') {
+ 
+                 if ($next_arg eq '-') {
                      $out_to_stdout = 1;
                  }
-     
-             return $next_arg;
+ 
+                 return $next_arg;
              };
          });
 
@@ -99,20 +99,20 @@ DESCRIPTION
     next argument to the option value:
 
          my $rules = {
-     
-         '-foo'  => sub {
+ 
+             '-foo'  => sub {
                  my ($getopt, $node, $arg_name, $arg_value) = @_;
                      return $arg_value if $arg_value;
-     
-                 my $next_arg = $getopt->get_next_arg($node);
-     
-                 return $next_arg;
+ 
+                     my $next_arg = $getopt->get_next_arg($node);
+ 
+                     return $next_arg;
              },
          };
-     
-     my $result = getoptions($rules);
-     
-     print 'FOO IS: [', $result->{'-foo'}, "]\n";
+ 
+         my $result = getoptions($rules);
+ 
+         print 'FOO IS: [', $result->{'-foo'}, "]\n";
 
     if this program is called with the arguments: "-foo bar" or "-foo=bar"
     it will print out this message:
@@ -162,8 +162,8 @@ DESCRIPTION
          #!/usr/bin/perl
          use strict;
          use warnings;
-     
-     # we have three arguments:
+ 
+         # we have three arguments:
          #   -f!          (our filename, which is a s(tring) the ! means that it's
          #               a required argument.
          #   --verbose   (print extra information about what we're doing, is a flag).
@@ -175,16 +175,16 @@ DESCRIPTION
              --verbose
              --debug|d=d
          );
-     
-     if ($ARGV{'--verbose'}) {
+ 
+         if ($ARGV{'--verbose'}) {
              print "In verbose mode...\n";
          }
-     
-     if ($ARGV{'--debug'}) {
+ 
+         if ($ARGV{'--debug'}) {
              print 'Debugging level is set to: ', $ARGV{'--debug'}, "\n";
          }
-     
-     print "The contents of @ARGV is:\n";
+ 
+         print "The contents of @ARGV is:\n";
          prnit "\t", join{q{, }, @ARGV), "\n";
 
     The options that was found is placed into %ARGV, the arguments that is
@@ -202,7 +202,7 @@ DESCRIPTION
          In verbose mode...
          Debugging level is set to: 3
          The contents of @ARGV is:
-             foo, bar
+             foo, bar 
 
 SUBROUTINES/METHODS
   CONSTRUCTOR
@@ -348,6 +348,8 @@ CONFIGURATION AND ENVIRONMENT
     This module requires no configuration file or environment variables.
 
 DEPENDENCIES
+    *   Class::Dot
+
     *   version
 
 INCOMPATIBILITIES

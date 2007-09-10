@@ -9,7 +9,7 @@ use strict;
 use warnings;
 use Carp;
 use Scalar::Util qw( weaken );
-use version; our $VERSION = qv('0.0.5');
+use version; our $VERSION = qv('0.0.6');
 use 5.006_001;
 {
 
@@ -162,8 +162,9 @@ This module requires no configuration file or environment variables.
 
 = DEPENDENCIES
 
+* [Class::Dot]
 
-== * version
+* [version]
 
 = INCOMPATIBILITIES
 

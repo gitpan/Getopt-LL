@@ -2,14 +2,15 @@
 use ExtUtils::MakeMaker;
 WriteMakefile
 (
-          'PL_FILES' => {},
-          'INSTALLDIRS' => 'site',
           'NAME' => 'Getopt::LL',
-          'EXE_FILES' => [],
           'VERSION_FROM' => 'lib/Getopt/LL.pm',
           'PREREQ_PM' => {
-                           'version' => 0,
-                           'Test::Simple' => '0.42'
-                         }
+                           'Class::Dot' => '1',
+                           'Test::Simple' => '0.42',
+                           'version' => '0'
+                         },
+          'INSTALLDIRS' => 'site',
+          'EXE_FILES' => [],
+          'PL_FILES' => {}
         )
 ;

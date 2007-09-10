@@ -11,7 +11,7 @@ Getopt::LL::DLList - A doubly linked list.
 
 =head1 VERSION
 
-This document describes Getopt::LL::DLList version 0.0.5
+This document describes Getopt::LL::DLList version 0.0.6
 
 =head1 SYNOPSIS
 
@@ -85,7 +85,21 @@ This module requires no configuration file or environment variables.
 
 =head1 DEPENDENCIES
 
-=head2 * version
+=over
+
+=item *
+
+L<Class::Dot>
+
+=back
+
+=over
+
+=item *
+
+L<version>
+
+=back
 
 =head1 INCOMPATIBILITIES
 

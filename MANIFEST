@@ -1,14 +1,14 @@
 Build.PL
 Changes
-devel/changeversion.sh
+devel/curversion
 devel/graph/Getopt-LL.html
 devel/graph/graph.txt
+devel/grepversion.sh
+devel/incrementversion.sh
 devel/scrap
 examples/perltags
 examples/simple.pl
 inc/Module/Build/Getopt/LL.pm
-lib/Class/Dot.pm
-lib/Class/Dot.pod
 lib/Getopt/LL.pm
 lib/Getopt/LL.pod
 lib/Getopt/LL/DLList.pm
@@ -30,13 +30,10 @@ t/00-Kwalitee.t
 t/00-YAML-META_valid.t
 t/00.load.t
 t/aliases.t
-t/Cat.pm
-t/cat.t
 t/dllist-node.t
 t/dllist.t
 t/gnu.t
 t/help.t
-t/Mammal.pm
 t/missing.t
 t/non-gnu.t
 t/nonexisting_rule_type.t
@@ -47,7 +44,6 @@ t/perlcriticrc
 t/pod-coverage.t
 t/pod-spell.t
 t/pod.t
-t/properties.t
 t/regex.t
 t/required.t
 t/rules.t
@@ -62,5 +58,4 @@ t/stopwords-asksh.txt
 t/TestArrayOverload.pm
 t/TestClass.pm
 t/TestDLListCompare.pm
-t/TestProperties.pm
 t/type-check.t

@@ -8,7 +8,7 @@ Getopt::LL - Flexible argument processing.
 
 =head1 VERSION
 
-This document describes B<Getopt::LL> version 0.0.5
+This document describes B<Getopt::LL> version 0.0.6
 
 =head1 SYNOPSIS
 
@@ -464,6 +464,14 @@ into:
 This module requires no configuration file or environment variables.
 
 =head1 DEPENDENCIES
+
+=over
+
+=item *
+
+L<Class::Dot>
+
+=back
 
 =over
 

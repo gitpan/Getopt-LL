@@ -41,6 +41,7 @@ my $builder = Module::Build::Getopt::LL->new(
     recursive_test_files => YES,
     requires             => {
         'version'                               => 0,
+        'Class::Dot'                            => 1.0,
     },
     recommends           => {
         'Test::Exception'       => 0.25,
