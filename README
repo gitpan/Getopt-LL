@@ -2,7 +2,7 @@ NAME
     Getopt::LL - Flexible argument processing.
 
 VERSION
-    This document describes Getopt::LL version 0.0.6
+    This document describes Getopt::LL version 0.0.7
 
 SYNOPSIS
          use Getopt:LL qw(getoptions);

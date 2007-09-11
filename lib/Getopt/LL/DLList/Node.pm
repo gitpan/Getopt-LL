@@ -9,7 +9,7 @@ use strict;
 use warnings;
 use Carp;
 use Scalar::Util qw( weaken );
-use version; our $VERSION = qv('0.0.6');
+use version; our $VERSION = qv('0.0.7');
 use 5.006_001;
 {
 
@@ -17,8 +17,8 @@ use 5.006_001;
     $ALLOCATED_TOTAL = 0;
 
     use Class::Dot qw( property isa_Object isa_Data );
-    property    prev => isa_Object('Getopt::LL::DLList::Node');
-    property    next => isa_Object('Getopt::LL::DLList::Node');
+    property    prev => isa_Object();
+    property    next => isa_Object();
     property    data => isa_Data;
 
     sub new {

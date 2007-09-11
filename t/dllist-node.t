@@ -78,6 +78,7 @@ my $i = 0;
 my $current_node = $top;
 ASCENDING:
 while ($current_node) {
+   last ASCENDING if !$current_node;
     is( $current_node->data, $nodes[$i],
         sprintf('node %d.data[%s] == [%s]', $i, $current_node->data,
             $nodes[$i])

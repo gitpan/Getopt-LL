@@ -1,5 +1,10 @@
 Revision history for Getopt-LL
 
+0.0.7  Tue Sep 11 12:13:14 2007 [asksh@cpan.org]
+    - Removed the class-name for DLList::Node properties in isa_Object
+      statements, to be sure that a new object is not created if it doesn't
+      exist.
+
 0.0.6  Mon Sep 10 13:36:03 2007 [asksh@cpan.org]
     - Class::Dot moved into it's own distribution.
     - Added dependency: Class::Dot

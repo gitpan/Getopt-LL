@@ -8,7 +8,7 @@ Getopt::LL::SimpleExporter - Simple way of exporting subroutines.
 
 =head1 VERSION
 
-This document describes Getopt::LL version 0.0.6
+This document describes Getopt::LL version 0.0.7
 
 =head1 SYNOPSIS
 

@@ -11,13 +11,13 @@ use Carp qw(croak);
 use Getopt::LL::DLList::Node;
 use Scalar::Util qw();
 #use Class::InsideOut::Policy::Modwheel qw( :std );
-use version; our $VERSION = qv('0.0.6');
+use version; our $VERSION = qv('0.0.7');
 use 5.006_001;
 {
 
     use Class::Dot qw( property isa_Object );
 
-    property head => isa_Object('Getopt::LL::DLList::Node');
+    property head => isa_Object();
 
     sub new {
         my ($class, $array_ref) = @_;

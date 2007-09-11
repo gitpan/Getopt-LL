@@ -10,7 +10,7 @@ use warnings;
 use Carp qw(croak);
 use Getopt::LL::DLList;
 use English qw($PROGRAM_NAME);
-use version qw(qv); our $VERSION = qv('0.0.6');
+use version qw(qv); our $VERSION = qv('0.0.7');
 use 5.006_001;
 {
 
@@ -115,9 +115,10 @@ use 5.006_001;
         $self->set_options($options_ref);
         $self->rules_prepare($rules_ref);
 
-        $self->set_dll( Getopt::LL::DLList->new($argv_ref) );
-
-        $self->_init();
+        if (scalar @{ $argv_ref }) {
+            $self->set_dll( Getopt::LL::DLList->new($argv_ref) );
+            $self->_init();
+        }
 
         $self->rules_postactions( );
 

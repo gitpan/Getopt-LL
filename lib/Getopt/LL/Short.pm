@@ -8,7 +8,7 @@ package Getopt::LL::Short;
 use strict;
 use warnings;
 use base 'Getopt::LL';
-use version; our $VERSION = qv('0.0.6');
+use version; our $VERSION = qv('0.0.7');
 use 5.006_001;
 {
 

@@ -8,7 +8,7 @@ package Getopt::LL::Simple;
 use strict;
 use warnings;
 use Getopt::LL::Short qw(getoptions);
-use version; our $VERSION = qv('0.0.6');
+use version; our $VERSION = qv('0.0.7');
 use 5.006_001;
 
 sub import {
