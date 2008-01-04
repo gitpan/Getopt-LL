@@ -2,6 +2,7 @@ use strict;
 use warnings;
 use File::Spec;
 use Test::More;
+use FindBin qw($Bin);
 use English qw(-no_match_vars);
 
 if ($ENV{TEST_COVERAGE}) {
@@ -20,7 +21,7 @@ if ( $EVAL_ERROR ) {
     plan( skip_all => $msg );
 }
 
-my $rcfile = File::Spec->catfile( 't', 'perlcriticrc' );
+my $rcfile = File::Spec->catfile( $Bin, 'perlcriticrc' );
 Test::Perl::Critic->import( -profile => $rcfile );
 # TODO inc/M/ + inc/Module/Build/M.pm
 all_critic_ok('lib/');

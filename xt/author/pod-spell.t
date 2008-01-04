@@ -5,6 +5,7 @@ use FindBin qw($Bin);
 use File::Spec;
 use File::Basename qw(basename);
 use FileHandle;
+use File::Find;
 use English qw( -no_match_vars );
 use 5.006_001;
 
@@ -89,5 +90,23 @@ if ($spell_type eq 'aspell') {
                             
 set_spell_cmd($path_to_spell);
 
-all_pod_files_spelling_ok( );
+my $UPDIR  = File::Spec->updir;
+my $libdir = File::Spec->catfile($Bin, $UPDIR, $UPDIR, 'lib');
 
+my @pm_files;
+my $spelltest_pm_files = sub {
+    my $source_file = $File::Find::name; ## no critic
+    return if not -f $source_file;
+    return if not -T $source_file;
+    return if not $source_file =~ m{\. (?: pm | pod | pl ) $}xms;
+    
+    push @pm_files, $source_file; 
+};
+
+find( $spelltest_pm_files, $libdir );
+
+plan( tests => scalar @pm_files );
+
+for my $pm_file (@pm_files) {
+    pod_file_spelling_ok($pm_file);
+}

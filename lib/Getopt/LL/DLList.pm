@@ -11,7 +11,7 @@ use Carp qw(croak);
 use Getopt::LL::DLList::Node;
 use Scalar::Util qw();
 #use Class::InsideOut::Policy::Modwheel qw( :std );
-use version; our $VERSION = qv('0.0.7');
+use version; our $VERSION = qv('1.0.0');
 use 5.006_001;
 {
 
@@ -108,6 +108,7 @@ use 5.006_001;
         if ($head) {
             $head->free();
         }
+        undef $self->{__x__head__x__}; # << Class::Dot 1.0 weirdness.
         undef $self->{head};
         return;
     }
@@ -128,7 +129,7 @@ __END__
 
 =pod
 
-=for stopwords Initialize
+=for stopwords Initialize expandtab shiftround
 
 =begin wikidoc
 

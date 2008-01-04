@@ -10,7 +10,7 @@ use warnings;
 use Carp qw(croak);
 use Getopt::LL::DLList;
 use English qw($PROGRAM_NAME);
-use version qw(qv); our $VERSION = qv('0.0.7');
+use version qw(qv); our $VERSION = qv('1.0.0');
 use 5.006_001;
 {
 
@@ -30,24 +30,24 @@ use 5.006_001;
     property    leftovers   => isa_Array;
     property    dll         => isa_Object('Getopt::LL::DLList');
 
-    my $RE_SHORT_ARGUMENT = qr/
+    my $RE_SHORT_ARGUMENT = qr{
             \A          # starts with...
             -           # single dash.
             (?!-)       # with no dash after that.
             .
-    /xms;
+    }xms;
 
-    my $RE_LONG_ARGUMENT = qr/
+    my $RE_LONG_ARGUMENT = qr{
             \A          # starts with...
             -- [^-]?    # two dashes.
             (?!-)       # with no dash after that.
             .
-    /xms;
+    }xms;
 
-    my $RE_ASSIGNMENT = qr/
+    my $RE_ASSIGNMENT = qr{
             (?<! \\ )   # equal sign that does not have backslash 
             =           # in front of it.
-    /xms;
+    }xms;
 
     my %TYPE_CHECK = (
         digit       => \&is_digit,
@@ -367,7 +367,7 @@ use 5.006_001;
         my $options_ref = $self->options;
 
         $options_ref->{die_on_type_mismatch}
-            ? die  $message, "\n"
+            ? croak  $message, "\n"
             : warn $message, "\n"
         ;
 
@@ -377,7 +377,7 @@ use 5.006_001;
     sub unknown_argument_error {
         my ($self, $argument) = @_;
 
-        die "Unknown argument: $argument.\n";
+        croak "Unknown argument: $argument.\n";
     }
 
     sub handle_rule {
@@ -396,7 +396,7 @@ use 5.006_001;
                 if (! defined $next_arg) {
                     $next_arg = '<no-value>';
                 }
-                die sprintf('Argument %s [%s] does not match %s', ## no critic
+                croak sprintf('Argument %s [%s] does not match %s', ## no critic
                     $arg_name, $next_arg, _regex_as_text($rule_type)
                 );
             }
@@ -462,7 +462,8 @@ use 5.006_001;
         my ($self) = @_;
 
         while (my ($arg, $help) = each %{ $self->help }) {
-            print {*STDERR} "$arg\t\t\t$help\n";
+            my $ret = print {*STDERR} "$arg\t\t\t$help\n";
+            croak 'I/O Error. Cannot print to terminal' if !$ret;
         }
 
         return;
@@ -493,7 +494,8 @@ use 5.006_001;
 
         my $arguments = join q{|}, @arguments;
 
-        print {*STDERR} "Usage: $program_name [$arguments]\n";
+        my $ret = print {*STDERR} "Usage: $program_name [$arguments]\n";
+        croak 'I/O Error. Cannot print to terminal' if !$ret;
 
         return;
     }
@@ -550,12 +552,12 @@ use 5.006_001;
         # The quoted regex (?xmsi:hello) should look something like this
         #   /hello/xmsi
         # The job is to remove the (?: and capture xmsi into $1.
-        my $ret = $regex_as_text =~ s/
+        my $ret = $regex_as_text =~ s{
             \A              # beginning of string.
                 \(\?        # a paren start and a question mark.
                     ([\w-]+)?   # none or more word characters captured to $1
                 :           # ends with a colon.
-        //xms;
+        }{}xms;
 
         if ($ret) {
             $regex_modifiers = $1;
@@ -580,6 +582,8 @@ use 5.006_001;
 1;
 
 __END__
+
+=for stopwords expandtab shiftround
 
 =begin wikidoc
 

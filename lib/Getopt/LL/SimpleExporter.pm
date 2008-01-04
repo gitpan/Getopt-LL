@@ -7,33 +7,34 @@
 package Getopt::LL::SimpleExporter;
 use strict;
 use warnings;
-use version; our $VERSION = qv('0.0.7');
+use version; our $VERSION = qv('1.0.0');
 use 5.006_001;
 
 my %EXPORTS_FOR_PACKAGE = ();
 
 sub import {
+    my @exports = @_;
     my $caller = caller;
     
-    $EXPORTS_FOR_PACKAGE{$caller} = {map { $_ => 1} @_};
+    $EXPORTS_FOR_PACKAGE{$caller} = {map { $_ => 1} @exports};
 
     no strict 'refs'; ## no critic;
     *{ $caller . q{::} . 'import'    } = \&simple_export;
-    @{ $caller . q{::} . 'EXPORT_OK' } = @_;
+    @{ $caller . q{::} . 'EXPORT_OK' } = @exports;
 
     return;
 }
 
 sub simple_export {
-    my $class = shift;
+    my ($class, @tags) = @_;
         my $caller = caller;
 
         no strict 'refs'; ## no critic
-        while (@_) {
-            my $export_attr = shift @_;
+        while (@tags) {
+            my $export_attr = shift @tags;
             my %exports     = %{ $EXPORTS_FOR_PACKAGE{$class} };
 
-            if (!$exports{$export_attr}) {
+            if (!exists $exports{$export_attr}) {
                 require Carp;
                 Carp->import('croak');
                 croak("$class does not export $export_attr"); ## no critic
@@ -49,6 +50,8 @@ sub simple_export {
 1;
 
 __END__
+
+=for stopwords expandtab shiftround
 
 =begin wikidoc
 

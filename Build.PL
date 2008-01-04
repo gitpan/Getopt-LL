@@ -28,7 +28,6 @@ our $BUILD_CONFIGFILE = 'config.ph';
 sub YES { 1 };
 sub NO  { 0 };
 
-$ENV{DEVEL_COVER_OPTIONS} = '-ignore,blib/Class/InsideOut/Policy/Modwheel.pm';
 my $builder = Module::Build::Getopt::LL->new(
     module_name          => 'Getopt::LL',
     license              => 'perl',
@@ -44,11 +43,11 @@ my $builder = Module::Build::Getopt::LL->new(
         'Class::Dot'                            => 1.0,
     },
     recommends           => {
-        'Test::Exception'       => 0.25,
-        'IO::Capture::Stderr'   => 0,
     },
     build_requires       => {
-     'Test::Simple'            => 0.42,    # 
+     'Test::Simple'          => 0.42,    # 
+     'Test::Exception'       => 0.25,
+     'IO::Capture::Stderr'   => 0,
     },
     add_to_cleanup       => [ qw(
         a.out
@@ -68,6 +67,9 @@ my $builder = Module::Build::Getopt::LL->new(
 );
 
 $builder->create_build_script( );
+
+package Module::Build::ModuleInfo::_version;
+use version qw(qv);
 
 # Local Variables:
 #   mode: cperl

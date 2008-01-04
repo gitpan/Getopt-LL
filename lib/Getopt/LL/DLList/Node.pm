@@ -9,7 +9,7 @@ use strict;
 use warnings;
 use Carp;
 use Scalar::Util qw( weaken );
-use version; our $VERSION = qv('0.0.7');
+use version; our $VERSION = qv('1.0.0');
 use 5.006_001;
 {
 
@@ -44,6 +44,11 @@ use 5.006_001;
         undef $self->{next};
         undef $self->{prev};
         undef $self->{data};
+
+        # Class::Dot 1.0 weirdness.
+        undef $self->{__x__next__x__};
+        undef $self->{__x__prev__x__};
+        undef $self->{__x__data__x__};
         return;
     }
 
@@ -66,6 +71,8 @@ use 5.006_001;
 1;
 
 __END__
+
+=for stopwords expandtab shiftround
 
 =begin wikidoc
 

@@ -1,5 +1,11 @@
 Revision history for Getopt-LL
 
+1.0.0  Fri Jan 04 14:13:12 2008 [asksh@cpan.org]
+    - Fixes some tests that broke in perl 5.10. (No serious bugs).
+    - This has been quite stable for some time now, so the version number has
+      been bumped to 1.0.
+    - No API changes.
+
 0.0.7  Tue Sep 11 12:13:14 2007 [asksh@cpan.org]
     - Removed the class-name for DLList::Node properties in isa_Object
       statements, to be sure that a new object is not created if it doesn't

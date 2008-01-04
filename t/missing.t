@@ -15,7 +15,8 @@ plan( tests => $THIS_TEST_HAS_TESTS );
 use Getopt::LL; # qw(getoptions);
 
 @ARGV = qw(-t hello world -X);
-my $ret = do { eval 'Getopt::LL::getoptions({ -t => "string" })' };
+my $ret;
+eval { $ret = Getopt::LL::getoptions({ -t => "string" }) };
 
 like($EVAL_ERROR, qr/Unknown argument: -X/,
     'bail on unknown argument'

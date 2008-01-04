@@ -8,7 +8,7 @@ package Getopt::LL::Simple;
 use strict;
 use warnings;
 use Getopt::LL::Short qw(getoptions);
-use version; our $VERSION = qv('0.0.7');
+use version; our $VERSION = qv('1.0.0');
 use 5.006_001;
 
 sub import {
@@ -31,6 +31,8 @@ sub import {
 
 1;
 __END__
+
+=for stopwords expandtab shiftround
 
 =begin wikidoc
 

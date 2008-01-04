@@ -8,7 +8,7 @@ package Getopt::LL::Short;
 use strict;
 use warnings;
 use base 'Getopt::LL';
-use version; our $VERSION = qv('0.0.7');
+use version; our $VERSION = qv('1.0.0');
 use 5.006_001;
 {
 
@@ -52,6 +52,8 @@ use 5.006_001;
 1;
 
 __END__
+
+=for stopwords expandtab shiftround
 
 =begin wikidoc
 

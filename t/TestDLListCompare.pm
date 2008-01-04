@@ -2,7 +2,7 @@ package TestDLListCompare;
 use Test::Builder qw( );
 use Class::Dot qw(property isa_Int isa_Array isa_Object);
 
-property count  => isa_Int;
+property count  => isa_Int(0);
 property array  => isa_Array;
 property tester => isa_Object;
 
